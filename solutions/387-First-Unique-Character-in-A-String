@@ -1,0 +1,27 @@
+// Not optimal
+
+class Solution {
+    public int firstUniqChar(String s) {
+        String[] list = s.split("");
+        boolean check;
+
+
+        for (int i = 0; i < list.length; i++) {
+            check = true;
+            if(list[i].isEmpty()){
+                continue;
+            }
+            for (int j = i + 1; j < list.length; j++) {
+                if (list[i].equals(list[j])) {
+                    check = false;
+                    list[j] = "";
+                }
+            }
+            if (check) {
+                return i;
+            }
+        }
+        return -1;
+
+    }
+    }
